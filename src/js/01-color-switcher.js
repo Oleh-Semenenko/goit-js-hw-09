@@ -15,7 +15,7 @@ function onStartBtnClick() {
     setColorId = setInterval(() => {
         refs.bodyEl.style.backgroundColor = getRandomHexColor();
     }, 1000);
-    
+  
     refs.startBtn.setAttribute('disabled', true);
     if (refs.stopBtn.hasAttribute('disabled')) {
         refs.stopBtn.removeAttribute('disabled');
