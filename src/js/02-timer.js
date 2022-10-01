@@ -1,6 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
-import Notiflix, { Notify } from 'notiflix';
+import { Notify } from 'notiflix';
 
 const refs = {
   startBtn: document.querySelector('[data-start]'),
@@ -12,7 +12,7 @@ const refs = {
   seconds: document.querySelector('[data-seconds]'),
 };  
 
-refs.startBtn.addEventListener('click', onStartBtnClick)
+refs.startBtn.addEventListener('click', onStartBtnClick);
 refs.startBtn.setAttribute('disabled', '');
 
 let selectedDate = null;
@@ -29,7 +29,7 @@ const options = {
       return;
     }
     refs.startBtn.removeAttribute('disabled');
-  }
+  },
 };
   
 flatpickr('input#datetime-picker', options);
@@ -68,7 +68,7 @@ function addLeadingZero(value) {
   return String(value).padStart(2, '0')
 };
 
-// refs.days.textContent = addLeadingZero(days);
+
 
 
 
