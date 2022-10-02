@@ -18,18 +18,18 @@ const onError = ({ position, delay }) => {
   Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
 };
 
-const object = {};
+const formFields = {};
 
 function onInputChange(event) {
   const {
     elements: { delay, step, amount },
   } = event.currentTarget;
 
-  object.delay = delay.value;
-  object.step = step.value;
-  object.amount = amount.value;
+  formFields.delay = delay.value;
+  formFields.step = step.value;
+  formFields.amount = amount.value;
 
-  return object;
+  return formFields;
 }
 
 function createPromise(position, delay) {
@@ -48,8 +48,8 @@ function createPromise(position, delay) {
 function onBtnSubmit(event) {
   event.preventDefault();
 
-  for (let i = 1; i <= object.amount; i += 1) {
-    const commonDelay = Number(object.delay) + Number(object.step) * i;
-    createPromise(i, commonDelay).then(onSuccess).catch(onError);
+  for (let i = 0; i < formFields.amount; i += 1) {
+    const commonDelay = Number(formFields.delay) + Number(formFields.step) * i;
+    createPromise(i + 1, commonDelay).then(onSuccess).catch(onError);
   }
 }

@@ -48,6 +48,7 @@ function onStartBtnClick() {
     refs.minutes.textContent = addLeadingZero(minutes);
     refs.seconds.textContent = addLeadingZero(seconds);
   }, 1000)
+  refs.startBtn.removeEventListener('click', onStartBtnClick)
 }
 
 function convertMs(ms) {
